@@ -11,10 +11,19 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # This program requires LEGO EV3 MicrafshkjfsaoPython v2.0 or higher.
 # Click "Open user guide" on the EV3 extension tab for more information.
 
-
-# Create your objects here.
+# Initialize the EV3 Brick.
 ev3 = EV3Brick()
 
+# Initialize the motors.
+left_motor = Motor(Port.B)
+right_motor = Motor(Port.C)
 
-# Write your program here.
+# Initialize the drive base.
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
+
+# Go forward and backwards for one meter.
+robot.run(1000)
+robot.straight(1000)
 ev3.speaker.beep()
+robot.turn(720)
+robot.straight(100)
